@@ -21,10 +21,11 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import IntroScreen from './pages/Intro Screens/IntroScreen';
 
 setupIonicReact();
 
-const App: React.FC = () => (
+const App = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
@@ -34,6 +35,10 @@ const App: React.FC = () => (
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
+        <Route exact path="/introscreen">
+          <IntroScreen/>
+        </Route>
+
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
