@@ -8,7 +8,7 @@ const IntroScreen = () => {
    <IonPage>
     <IonContent >
         <div style={{backgroundColor:"#00C9B5",height:"100%",border:"0.1px solid #00C9B5"}}>
-        <div style={{border:"0.1px solid #00C9B5",background:`url(${frame})`,backgroundRepeat: "no-repeat",backgroundPosition:"center",position:"relative",top:"50px"}}>
+        <div style={{border:"0.1px solid #00C9B5",background:`url(${frame})`,backgroundRepeat: "no-repeat",backgroundPosition:"center",position:"relative",top:"50px",backgroundColor:"#00C9B5"}}>
        
         <div class='circle-container'>
         <a href='#' class='deg45 bgImg'><img alt="deg45" style={{borderRadius:"50px",backgroundColor:"#bcbcbce0"}} src={AvtarImg}/></a>
