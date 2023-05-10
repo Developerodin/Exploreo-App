@@ -14,7 +14,7 @@ import LoginImg from "./LoginImg.png";
 import {callOutline,checkmarkCircleOutline,alertCircleOutline,arrowBackOutline} from 'ionicons/icons';
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-const Login = () => {
+const SignUP = () => {
 
   const history=useHistory();
 
@@ -23,8 +23,9 @@ const Login = () => {
   }
 
   const handelBackClick=()=>{
-    history.push("/home")
+    history.push("/login")
   }
+
   return (
     <IonPage>
       <IonContent>
@@ -40,7 +41,7 @@ const Login = () => {
 
           <div style={{marginBottom:"70px"}}>
             <div style={{display:"flex",justifyContent:"center",alignItems:"center",marginBottom:"20px"}}>
-            <IonText style={{fontSize:"35px",fontWeight:"600"}}>Log In</IonText>
+            <IonText style={{fontSize:"35px",fontWeight:"600"}}>Sign Up</IonText>
             </div>
             <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
             <IonText style={{fontSize:"15px",fontWeight:"400"}}>Enter your<span style={{fontSize:"17px",fontWeight:"bold"}}> Phone Number </span></IonText>
@@ -79,7 +80,7 @@ const Login = () => {
       <IonFooter>
           <div style={{width:"100%",display:"flex",justifyContent:"center",alignItems:"center",marginBottom:"30px"}}>
            
-           <IonText style={{fontSize:"15px",fontWeight:"500"}}>Dont have an account ? / <Link to="/signup"><span style={{color:"#00C9B5"}}> Sign up</span></Link> </IonText>
+           <IonText style={{fontSize:"15px",fontWeight:"500"}}>Dont have an account ? / <Link to="/login"><span style={{color:"#00C9B5"}}> Sign In</span></Link> </IonText>
            
 
          </div>
@@ -88,4 +89,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUP;

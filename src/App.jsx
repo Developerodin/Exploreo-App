@@ -23,6 +23,10 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import IntroScreen from './pages/Intro Screens/IntroScreen';
 import Login from './pages/Login Page/Login';
+import Verifiacation from './pages/Verification Page/Verifiacation';
+import SignUP from './pages/SignUp Page/SignUp';
+
+import NavBar from './pages/NavBar /NavBar';
 
 setupIonicReact();
 
@@ -30,14 +34,26 @@ const App = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
+         
+      <Route exact path="/home">
+          {/* <Home/> */}
+          <IntroScreen/>
+        </Route>
+
+        <Route exact path="/mainhome">
+          <NavBar/>
         </Route>
         <Route exact path="/introscreen">
           <IntroScreen/>
         </Route>
         <Route exact path="/login">
           <Login/>
+        </Route>
+        <Route exact path="/signup">
+          <SignUP/>
+        </Route>
+        <Route exact path="/verification">
+          <Verifiacation/>
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />

@@ -3,7 +3,13 @@ import React from 'react'
 import frame from "./IntroScreenBg.png"
 import AvtarImg from "./AvtarImg/AvtarLogo.png"
 import "./Style.css";
+import { useHistory } from 'react-router';
 const IntroScreen = () => {
+const history=useHistory();
+const handelClick=()=>{
+history.push("/login");
+}
+
   return (
    <IonPage>
     <IonContent >
@@ -34,7 +40,7 @@ const IntroScreen = () => {
          </div>
         
         <div style={{marginTop:"109px",display:"flex",justifyContent:"center"}}>
-            <IonButton color="light" shape="round" style={{fontSize:"22px",fontWeight:600}}>Get Started</IonButton>
+            <IonButton onClick={handelClick} color="light" shape="round" style={{fontSize:"22px",fontWeight:600}}>Get Started</IonButton>
         </div>
 
          </div>
