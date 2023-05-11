@@ -11,6 +11,7 @@ import SignUP from '../SignUp Page/SignUp';
 import Verifiacation from '../Verification Page/Verifiacation';
 import Home from '../Home';
 import Feeds from '../Feeds Page/Feeds';
+import SearchPage from '../Search Page/SearchPage';
 const NavBar = () => {
   return (
    
@@ -26,7 +27,7 @@ const NavBar = () => {
           <Route path="/mainhome" render={() => <Feeds/>} exact={true} />
           <Route path="/radio" render={() => <SignUP />} exact={true} />
           <Route path="/library" render={() => <Verifiacation />} exact={true} />
-          <Route path="/search" render={() => <Login />} exact={true} />
+          <Route path="/search" render={() => <SearchPage />} exact={true} />
         </IonRouterOutlet>
 
         <IonTabBar slot="bottom" style={{border:"none",marginBottam:"20px"}}>
@@ -35,7 +36,7 @@ const NavBar = () => {
             
           </IonTabButton>
 
-          <IonTabButton tab="radio" href="/radio" style={{backgroundColor:"#FFF",color:"grey"}}>
+          <IonTabButton tab="radio" href="/search" style={{backgroundColor:"#FFF",color:"grey"}}>
             <IonIcon icon={searchOutline} />
            
           </IonTabButton>
@@ -45,7 +46,7 @@ const NavBar = () => {
            
           </IonTabButton>
 
-          <IonTabButton tab="search" href="/search" style={{backgroundColor:"#FFF",color:"grey"}}>
+          <IonTabButton tab="search" href="/radio" style={{backgroundColor:"#FFF",color:"grey"}}>
             <IonIcon icon={heartOutline} />
            
           </IonTabButton>

@@ -9,7 +9,7 @@ const FeedCard = () => {
 
   return (
     <>
-    <IonCard style={{width:"90%",borderRadius:"10px",boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px",marginBottom:"50px"}}>
+    <div style={{padding:"0px",margin:"0px 0px 50px",borderRadius:"10px"}}>
      
       <div style={{ display:"flex",justifyContent:"space-between",padding:"10px"}}>
         <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
@@ -73,7 +73,7 @@ const FeedCard = () => {
         <IonIcon style={{transform:"rotate(-30deg)",margin:"5px 3px 0px"}}   icon={sendOutline} size="small" color="dark"></IonIcon>
         </div>
       </div>
-    </IonCard>
+    </div>
     </>
   )
 }
