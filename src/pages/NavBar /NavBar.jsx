@@ -12,6 +12,7 @@ import Verifiacation from '../Verification Page/Verifiacation';
 import Home from '../Home';
 import Feeds from '../Feeds Page/Feeds';
 import SearchPage from '../Search Page/SearchPage';
+import Chats from '../Chats Page/Chats';
 const NavBar = () => {
   return (
    
@@ -28,6 +29,7 @@ const NavBar = () => {
           <Route path="/radio" render={() => <SignUP />} exact={true} />
           <Route path="/library" render={() => <Verifiacation />} exact={true} />
           <Route path="/search" render={() => <SearchPage />} exact={true} />
+          <Route path="/chats" render={() => <Chats/>} exact={true} />
         </IonRouterOutlet>
 
         <IonTabBar slot="bottom" style={{border:"none",marginBottam:"20px"}}>

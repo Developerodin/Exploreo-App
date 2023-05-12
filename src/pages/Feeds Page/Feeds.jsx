@@ -14,8 +14,14 @@ const Feeds = () => {
   return (
     <IonPage>
         <IonContent>
-           
+
+           <div style={{position:"sticky",top:"0",backgroundColor:"#FFF",zIndex:"2"}}>
            <Header/>
+           </div>
+           
+           <div>
+
+           
 
            <div>
             <div style={{width:"90%",margin:"auto"}}>
@@ -26,10 +32,6 @@ const Feeds = () => {
             <EventFeedCard/>
             </div>
           
-           </div>
-        
-
-
             <div>
             <div style={{width:"90%",margin:"auto"}}>
                 <IonText style={{fontSize:"14px",fontWeight:"400px"}}>20 Friends Online</IonText>
@@ -39,6 +41,11 @@ const Feeds = () => {
             </div>
          
            </div>
+           </div>
+        
+
+
+            
 
              
 
@@ -54,7 +61,7 @@ const Feeds = () => {
                       </div>
                     </div>
           
-          
+                    </div>
          
            
          

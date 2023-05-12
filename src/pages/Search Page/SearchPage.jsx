@@ -8,7 +8,7 @@ const SearchPage = () => {
     <IonPage>
         <IonContent>
             <div style={{borderRadius:"50px"}}>
-            <IonSearchbar style={{borderRadius:"50px"}}></IonSearchbar>
+            <IonSearchbar animated={true} show-clear-button="focus"></IonSearchbar>
             </div>
 {/* Swiper */}
          
