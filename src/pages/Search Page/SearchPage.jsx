@@ -7,16 +7,16 @@ const SearchPage = () => {
   return (
     <IonPage>
         <IonContent>
-            <div>
-            <IonSearchbar></IonSearchbar>
+            <div style={{borderRadius:"50px"}}>
+            <IonSearchbar style={{borderRadius:"50px"}}></IonSearchbar>
             </div>
 {/* Swiper */}
-            <div>
+         
 <SearchPageSwiper/>
-            </div>
+          
 
 {/* GAllery */}
-            <div style={{border:"1px solid red"}}>
+            <div style={{marginTop:"10px"}}>
                   <SearchPageGallery/>
             </div>
         </IonContent>

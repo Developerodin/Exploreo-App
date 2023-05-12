@@ -111,8 +111,10 @@ const SearchPageSwiper = () => {
         }
       };
   return (
-    <div onClick={handelClick} style={{padding:"8px"}}>
-    <Swiper
+   
+
+    <IonContent style={{height:"20px"}}>
+  <Swiper
       slidesPerView={4.7}
       style={{ height: "100%" }}
       onTap={handelBackground}
@@ -120,7 +122,7 @@ const SearchPageSwiper = () => {
       {CompanyData.map((el) => {
         return (
           <SwiperSlide
-            style={{ padding: "0px", justifyContent: "space-around" }}
+            style={{ padding: "2px", justifyContent: "space-around" }}
           >
             <IonCard
               style={{
@@ -128,7 +130,8 @@ const SearchPageSwiper = () => {
                 margin: "0px",
                 marginBottam: "0px",
                 borderRadius:"50px",
-                height:"100%"
+                height:"100%",
+                
               }}
             >
               {/* {console.log(isActive)} */}
@@ -136,7 +139,7 @@ const SearchPageSwiper = () => {
                 style={{
                   display: "flex",
                   margin: "0px",
-                  padding: "0px",
+                  padding: "px",
                   justifyContent: "center",
                   alignItems: "center",
                   height:"25px",
@@ -149,7 +152,7 @@ const SearchPageSwiper = () => {
                   style={{
                     fontSize: "14px",
                     fontWeight: "bold",
-                   
+                    marginTop:"-11px"
                   }}
                 >
                   <p>{el.title}</p>
@@ -160,10 +163,10 @@ const SearchPageSwiper = () => {
         );
       })}
     </Swiper>
+    </IonContent>
+  
 
-
-  </div>
-
+  
 
   )
 }
