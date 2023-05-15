@@ -30,6 +30,7 @@ import NavBar from './pages/NavBar /NavBar';
 import PersonalChat from './components/Chats/PersonalChat';
 import Chats from './pages/Chats Page/Chats';
 import GroupChatting from './components/Chats/GroupChatting';
+import Profile from './pages/ProfilePage/Profile';
 
 setupIonicReact();
 
@@ -69,6 +70,9 @@ const App = () => (
         </Route>
         <Route exact path="/group-chat">
           <GroupChatting/>
+        </Route>
+        <Route exact path="/profile">
+          <Profile/>
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />

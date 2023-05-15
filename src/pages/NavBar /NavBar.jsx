@@ -16,6 +16,7 @@ import Chats from '../Chats Page/Chats';
 import PersonalChat from '../../components/Chats/PersonalChat';
 import { AppContext } from '../../Context/AppContext';
 import GroupChatting from '../../components/Chats/GroupChatting';
+import Profile from '../ProfilePage/Profile';
 const NavBar = () => {
   const{setTabBarVisibility,TabBarVisibility}=useContext(AppContext);
 
@@ -40,10 +41,11 @@ const NavBar = () => {
           Use the component prop when your component depends on the RouterComponentProps passed in automatically.
         */}
           <Route path="/mainhome" render={() => <Feeds/>} exact={true} />
-          <Route path="/profile" render={() => <SignUP />} exact={true} />
+          
           <Route path="/addpost" render={() => <Verifiacation />} exact={true} />
           <Route path="/search" render={() => <SearchPage />} exact={true} />
           <Route path="/chats" render={() => <Chats/>} exact={true} />
+          <Route path="/profile" render={() => <Profile/>} exact={true} />
           <Route path="/personal-chat" render={() => <PersonalChat hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
           <Route path="/group-chat" render={() => <GroupChatting hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
         </IonRouterOutlet>
