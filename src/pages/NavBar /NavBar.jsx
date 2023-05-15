@@ -1,5 +1,5 @@
 import { IonFooter } from '@ionic/react'
-import React from 'react'
+import React, { useContext } from 'react'
 import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
@@ -13,7 +13,21 @@ import Home from '../Home';
 import Feeds from '../Feeds Page/Feeds';
 import SearchPage from '../Search Page/SearchPage';
 import Chats from '../Chats Page/Chats';
+import PersonalChat from '../../components/Chats/PersonalChat';
+import { AppContext } from '../../Context/AppContext';
+import GroupChatting from '../../components/Chats/GroupChatting';
 const NavBar = () => {
+  const{setTabBarVisibility,TabBarVisibility}=useContext(AppContext);
+
+
+  let HideTabBarValue;
+  if(TabBarVisibility === "/group-chat" || TabBarVisibility === "/personal-chat"){
+    HideTabBarValue=TabBarVisibility;
+   }
+   else{
+    HideTabBarValue="false"
+   }
+
   return (
    
          <IonReactRouter>
@@ -26,13 +40,16 @@ const NavBar = () => {
           Use the component prop when your component depends on the RouterComponentProps passed in automatically.
         */}
           <Route path="/mainhome" render={() => <Feeds/>} exact={true} />
-          <Route path="/radio" render={() => <SignUP />} exact={true} />
-          <Route path="/library" render={() => <Verifiacation />} exact={true} />
+          <Route path="/profile" render={() => <SignUP />} exact={true} />
+          <Route path="/addpost" render={() => <Verifiacation />} exact={true} />
           <Route path="/search" render={() => <SearchPage />} exact={true} />
           <Route path="/chats" render={() => <Chats/>} exact={true} />
+          <Route path="/personal-chat" render={() => <PersonalChat hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
+          <Route path="/group-chat" render={() => <GroupChatting hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
         </IonRouterOutlet>
 
-        <IonTabBar slot="bottom" style={{border:"none",marginBottam:"20px"}}>
+
+        <IonTabBar slot="bottom" style={{border:"none",marginBottam:"20px",display:`${TabBarVisibility===HideTabBarValue ? "none" : "flex" }`}}>
           <IonTabButton color="dark" tab="home" href="/mainhome" style={{backgroundColor:"#FFF",color:"grey"}}>
             <IonIcon icon={homeOutline} />
             
@@ -43,17 +60,17 @@ const NavBar = () => {
            
           </IonTabButton>
 
-          <IonTabButton tab="library" href="/library" style={{backgroundColor:"#FFF",color:"grey"}}>
+          <IonTabButton tab="library" href="/addpost" style={{backgroundColor:"#FFF",color:"grey"}}>
             <IonIcon icon={addCircleOutline} />
            
           </IonTabButton>
 
-          <IonTabButton tab="search" href="/radio" style={{backgroundColor:"#FFF",color:"grey"}}>
+          <IonTabButton tab="search" href="/search" style={{backgroundColor:"#FFF",color:"grey"}}>
             <IonIcon icon={heartOutline} />
            
           </IonTabButton>
 
-          <IonTabButton tab="user" href="/radio" style={{backgroundColor:"#FFF",color:"grey"}}>
+          <IonTabButton tab="user" href="/profile" style={{backgroundColor:"#FFF",color:"grey"}}>
             <IonIcon icon={personOutline} />
             
           </IonTabButton>

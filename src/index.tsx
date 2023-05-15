@@ -3,11 +3,15 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import AppContextProvider from './Context/AppContext';
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
 root.render(
-    <App />
+    <AppContextProvider>
+         <App />
+    </AppContextProvider>
+    
   
 );
 

@@ -112,7 +112,7 @@ const SearchPageGallery = () => {
         <IonRow className="ion-justify-content-center">
           {itemData.map((item, index) => (
             <IonCol size="4" size-md="3" size-lg="2" key={index}>
-              <IonImg src={item.img} className="gallery-image" />
+              <IonImg src={item.img} className="gallery-image" loading="lazy" />
             </IonCol>
           ))}
         </IonRow>

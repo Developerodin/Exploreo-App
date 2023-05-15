@@ -27,6 +27,9 @@ import Verifiacation from './pages/Verification Page/Verifiacation';
 import SignUP from './pages/SignUp Page/SignUp';
 
 import NavBar from './pages/NavBar /NavBar';
+import PersonalChat from './components/Chats/PersonalChat';
+import Chats from './pages/Chats Page/Chats';
+import GroupChatting from './components/Chats/GroupChatting';
 
 setupIonicReact();
 
@@ -43,6 +46,12 @@ const App = () => (
         <Route exact path="/mainhome">
           <NavBar/>
         </Route>
+        <Route exact path="/chats">
+          <Chats/>
+        </Route>
+        <Route exact path="/chats">
+        <NavBar/>
+        </Route>
         <Route exact path="/introscreen">
           <IntroScreen/>
         </Route>
@@ -54,6 +63,12 @@ const App = () => (
         </Route>
         <Route exact path="/verification">
           <Verifiacation/>
+        </Route>
+        <Route exact path="/personal-chat">
+          <PersonalChat/>
+        </Route>
+        <Route exact path="/group-chat">
+          <GroupChatting/>
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />
