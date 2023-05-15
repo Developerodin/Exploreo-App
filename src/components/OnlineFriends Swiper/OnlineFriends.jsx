@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { IonBadge, IonCard, IonCardContent,IonContent, IonPage } from '@ionic/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
@@ -15,6 +15,7 @@ import img1 from './SelectVehicleSwiperImages/All.png'
 import img2 from './SelectVehicleSwiperImages/Hyundai.png'
 import img3 from './SelectVehicleSwiperImages/MG.png'
 import img4 from './SelectVehicleSwiperImages/Tata.png'
+import { AppContext } from '../../Context/AppContext';
 
 
 
@@ -78,6 +79,8 @@ const OnlineFriends = () => {
 
     const [DataValue, setDataValue] = useState(data);
 
+    const{itemData}=useContext(AppContext)
+
     const handelClick = (e) => {
         let clickedValue = e.target.innerText;
         let SelectData;
@@ -112,100 +115,7 @@ const OnlineFriends = () => {
       };
   return (
     
-    // <IonContent style={{height:"8%"}}>
-       
-    //   <Swiper style={{height:"100%"}}>
-    //     <SwiperSlide style={{padding:"0px",justifyContent:"space-around"}}>
-    //     <IonCard style={{padding:"3px",width:"93px",backgroundColor:" #1B9A8B",margin:"0px",marginBottam:"0px"}}>
-    //         <IonCardContent style={{display:"flex",margin:"0px",padding:"5px",justifyContent:"space-around",alignItems:"center"}}>
-    //             <div style={{borderRadius:"50%",width:"26px",height:"26px",justifyContent:"center",backgroundColor:"#FFFF"}}>
-    //             <img src={img1} alt='img' style={{marginTop:"5px",height:"60%"}}/>
-    //             </div>
-               
-    //            <div style={{width:"70%",fontSize:"14px",fontWeight:"bold",color:"#FFFF",marginTop:"3px"}}>
-    //            <p >All</p>
-    //            </div>
-              
-                
-    //         </IonCardContent>
-    //     </IonCard>
-
-    //     <IonCard style={{padding:"3px",width:"93px",backgroundColor:"rgb(219 213 213 / 50%)",margin:"0px",marginBottam:"0px"}}>
-    //         <IonCardContent style={{display:"flex",margin:"0px",padding:"5px",justifyContent:"space-around",alignItems:"center"}}>
-    //             <div style={{borderRadius:"50%",width:"26px",height:"26px",justifyContent:"center",backgroundColor:"#FFFF"}}>
-    //             <img src={img4} alt='img' style={{marginTop:"5px",height:"60%"}}/>
-    //             </div>
-               
-    //            <div style={{width:"70%",fontSize:"14px",fontWeight:"bold",marginTop:"3px"}}>
-    //            <p >TATA</p>
-    //            </div>
-              
-                
-    //         </IonCardContent>
-    //     </IonCard>
-
-    //     <IonCard style={{padding:"3px",width:"93px",backgroundColor:"rgb(219 213 213 / 50%)",margin:"0px",marginBottam:"0px"}}>
-    //         <IonCardContent style={{display:"flex",margin:"0px",padding:"5px",justifyContent:"space-around",alignItems:"center"}}>
-    //             <div style={{borderRadius:"50%",width:"30px",height:"30px",justifyContent:"center",backgroundColor:"#FFFF"}}>
-    //             <img src={img3} alt='img' style={{marginTop:"6px",height:"60%"}}/>
-    //             </div>
-               
-    //            <div style={{width:"70%",fontSize:"14px",fontWeight:"bold",marginTop:"2px"}}>
-    //            <p >MG</p>
-    //            </div>
-              
-                
-    //         </IonCardContent>
-    //     </IonCard>
-    //         </SwiperSlide>
-
-
-
-    //         <SwiperSlide style={{padding:"0px",justifyContent:"space-around"}}>
-    //     <IonCard style={{padding:"3px",width:"115px",backgroundColor:"rgb(219 213 213 / 50%)",margin:"0px",marginBottam:"0px"}}>
-    //         <IonCardContent style={{display:"flex",margin:"0px",padding:"5px",justifyContent:"space-around",alignItems:"center"}}>
-    //             <div style={{borderRadius:"50%",width:"26px",height:"26px",justifyContent:"center",backgroundColor:"#FFFF"}}>
-    //             <img src={img2} alt='img' style={{marginTop:"5px",height:"60%"}}/>
-    //             </div>
-               
-    //            <div style={{width:"85%",fontSize:"14px",fontWeight:"bold",marginTop:"3px"}}>
-    //            <p >HYUNDAI</p>
-    //            </div>
-              
-                
-    //         </IonCardContent>
-    //     </IonCard>
-
-    //     <IonCard style={{padding:"3px",width:"93px",backgroundColor:"rgb(219 213 213 / 50%)",margin:"0px",marginBottam:"0px"}}>
-    //         <IonCardContent style={{display:"flex",margin:"0px",padding:"5px",justifyContent:"space-around",alignItems:"center"}}>
-    //             <div style={{borderRadius:"50%",width:"26px",height:"26px",justifyContent:"center",backgroundColor:"#FFFF"}}>
-    //             <img src={img4} alt='img' style={{marginTop:"5px",height:"60%"}}/>
-    //             </div>
-               
-    //            <div style={{width:"70%",fontSize:"14px",fontWeight:"bold",marginTop:"3px"}}>
-    //            <p >TATA</p>
-    //            </div>
-              
-                
-    //         </IonCardContent>
-    //     </IonCard>
-
-    //     <IonCard style={{padding:"3px",width:"93px",backgroundColor:"rgb(219 213 213 / 50%)",margin:"0px",marginBottam:"0px"}}>
-    //         <IonCardContent style={{display:"flex",margin:"0px",padding:"5px",justifyContent:"space-around",alignItems:"center"}}>
-    //             <div style={{borderRadius:"50%",width:"30px",height:"30px",justifyContent:"center",backgroundColor:"#FFFF"}}>
-    //             <img src={img3} alt='img' style={{marginTop:"6px",height:"60%"}}/>
-    //             </div>
-               
-    //            <div style={{width:"70%",fontSize:"14px",fontWeight:"bold",marginTop:"3px"}}>
-    //            <p >MG</p>
-    //            </div>
-              
-                
-    //         </IonCardContent>
-    //     </IonCard>
-    //         </SwiperSlide>
-    //   </Swiper>
-    // </IonContent>
+  
 
     <div onClick={handelClick}>
     <Swiper
@@ -213,15 +123,15 @@ const OnlineFriends = () => {
       style={{ height: "100px"}}
     //   onTap={handelBackground}
     >
-      {CompanyData.map((el) => {
+      {itemData.map((el) => {
         return (
           <SwiperSlide
             style={{ padding: "0px",display:"flex", justifyContent: "center",alignItems:"center" }}
           >
             <div style={{ borderRadius:"100px"}}>
             <div style={{width:"50px", height:"50px"}}>
-                <img src={IMGurl}
-               alt='user Image' style={{borderRadius:"100px"}}/>
+                <img src={el.userImg}
+               alt='user Image' style={{borderRadius:"100px",width:"100%",height:"100%"}}/>
              </div>
                 <div style={{margin:"-45px 0px 0px 42px", position:"absolute"}}>
                 <div color="success" style={{width:"10px",height:"10px",borderRadius:"50px",color:"#1F9B3D",backgroundColor:"#1F9B3D"}}></div>

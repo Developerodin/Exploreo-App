@@ -1,16 +1,18 @@
 import { IonContent, IonPage, IonText } from '@ionic/react'
-import React from 'react'
+import React, { useContext } from 'react'
 import FeedCard from '../../components/Cards/FeedCard'
 import Header from '../../components/HeaderMain/Header'
 import OnlineFriends from '../../components/OnlineFriends Swiper/OnlineFriends'
 import EventFeedCard from '../../components/EventsFeedCards/EventFeedCard'
+import { AppContext } from '../../Context/AppContext'
 
-const Data =[
-    {},{},{},{},{},{},{},{},{},{}
-]
+
 
 
 const Feeds = () => {
+
+const {itemData}=useContext(AppContext);
+
   return (
     <IonPage>
         <IonContent>
@@ -51,10 +53,10 @@ const Feeds = () => {
 
                 <div style={{marginTop:"30px"}}>
                   <div style={{margin:"auto"}}>
-                     {Data.map((el)=>{
+                     {itemData.map((el)=>{
                           return (
                             <div>
-                           <FeedCard/>
+                           <FeedCard Data={el}/>
                             </div>
                              )
                           })}
