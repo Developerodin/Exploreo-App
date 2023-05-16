@@ -13,6 +13,8 @@ http://ionicframework.com/docs/theming/ */
 
   /* Custom Color */
   --ion-color-btnS: #00C9B5;
+  --ion-color-btnF: #C9F4EF;
+
 
   /** secondary **/
   --ion-color-secondary: #3dc2ff;
@@ -240,4 +242,8 @@ http://ionicframework.com/docs/theming/ */
 
 .ion-color-btnS{
   --ion-color-base:var(--ion-color-btnS)
+}
+
+.ion-color-btnF{
+  --ion-color-base:var(--ion-color-btnF)
 }

@@ -84,7 +84,7 @@ const Profile = () => {
 </div>
 
 
-<div style={{display:"flex",justifyContent:"space-evenly",alignItems:"center"}}> 
+<div style={{display:"flex",justifyContent:"space-evenly",alignItems:"center",marginBottom:"15px"}}> 
   <IonButton shape='round' color="btnS">Edit Profile</IonButton>
   <IonButton shape='round' color="light">Friends</IonButton>
 </div>

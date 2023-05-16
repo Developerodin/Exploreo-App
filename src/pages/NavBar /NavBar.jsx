@@ -17,6 +17,7 @@ import PersonalChat from '../../components/Chats/PersonalChat';
 import { AppContext } from '../../Context/AppContext';
 import GroupChatting from '../../components/Chats/GroupChatting';
 import Profile from '../ProfilePage/Profile';
+import Activity from '../Activity Page/Activity';
 const NavBar = () => {
   const{setTabBarVisibility,TabBarVisibility}=useContext(AppContext);
 
@@ -48,6 +49,7 @@ const NavBar = () => {
           <Route path="/profile" render={() => <Profile/>} exact={true} />
           <Route path="/personal-chat" render={() => <PersonalChat hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
           <Route path="/group-chat" render={() => <GroupChatting hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
+          <Route path="/activity" render={() => <Activity hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
         </IonRouterOutlet>
 
 
@@ -57,17 +59,17 @@ const NavBar = () => {
             
           </IonTabButton>
 
-          <IonTabButton tab="radio" href="/search" style={{backgroundColor:"#FFF",color:"grey"}}>
+          <IonTabButton tab="search" href="/search" style={{backgroundColor:"#FFF",color:"grey"}}>
             <IonIcon icon={searchOutline} />
            
           </IonTabButton>
 
-          <IonTabButton tab="library" href="/addpost" style={{backgroundColor:"#FFF",color:"grey"}}>
+          <IonTabButton tab="addpost" href="/addpost" style={{backgroundColor:"#FFF",color:"grey"}}>
             <IonIcon icon={addCircleOutline} />
            
           </IonTabButton>
 
-          <IonTabButton tab="search" href="/search" style={{backgroundColor:"#FFF",color:"grey"}}>
+          <IonTabButton tab="activity" href="/activity" style={{backgroundColor:"#FFF",color:"grey"}}>
             <IonIcon icon={heartOutline} />
            
           </IonTabButton>

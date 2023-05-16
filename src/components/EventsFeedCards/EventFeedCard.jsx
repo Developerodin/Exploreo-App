@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   IonBadge,
   IonButton,
@@ -24,6 +24,7 @@ import img1 from "./SelectVehicleSwiperImages/All.png";
 import img2 from "./SelectVehicleSwiperImages/Hyundai.png";
 import img3 from "./SelectVehicleSwiperImages/MG.png";
 import img4 from "./SelectVehicleSwiperImages/Tata.png";
+import { AppContext } from "../../Context/AppContext";
 
 const data = [
   {
@@ -79,6 +80,7 @@ const IMGurl =
 const EventFeedCard = () => {
   const [DataValue, setDataValue] = useState(data);
 
+  const {itemData}=useContext(AppContext);
   const handelClick = (e) => {
     let clickedValue = e.target.innerText;
     let SelectData;
@@ -118,7 +120,7 @@ const EventFeedCard = () => {
         style={{ height: "100%" }}
         //   onTap={handelBackground}
       >
-        {CompanyData.map((el) => {
+        {itemData.map((el) => {
           return (
             <SwiperSlide
               style={{ padding: "0px", justifyContent: "space-around" }}
@@ -131,9 +133,9 @@ const EventFeedCard = () => {
               >
                 <div style={{ width: "100%", height: "50%" }}>
                   <img
-                    src={IMGurl}
+                    src={el.img}
                     alt="user Image"
-                    style={{ width: "100%", height: "100%",marginBottom:"-3px" }}
+                    style={{ width: "100%", maxHeight: "100%",marginBottom:"-3px" }}
                   />
 
                   <div style={{position:"absolute",top:"10px",left:"85%",display:"flex",justifyContent:"end",alignItems:"end"}}>
