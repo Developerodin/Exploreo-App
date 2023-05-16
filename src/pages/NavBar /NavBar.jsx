@@ -18,6 +18,8 @@ import { AppContext } from '../../Context/AppContext';
 import GroupChatting from '../../components/Chats/GroupChatting';
 import Profile from '../ProfilePage/Profile';
 import Activity from '../Activity Page/Activity';
+import AddPost from '../AddPost Page/AddPost';
+import Events from '../Events Page/Events';
 const NavBar = () => {
   const{setTabBarVisibility,TabBarVisibility}=useContext(AppContext);
 
@@ -42,14 +44,14 @@ const NavBar = () => {
           Use the component prop when your component depends on the RouterComponentProps passed in automatically.
         */}
           <Route path="/mainhome" render={() => <Feeds/>} exact={true} />
-          
-          <Route path="/addpost" render={() => <Verifiacation />} exact={true} />
           <Route path="/search" render={() => <SearchPage />} exact={true} />
           <Route path="/chats" render={() => <Chats/>} exact={true} />
           <Route path="/profile" render={() => <Profile/>} exact={true} />
           <Route path="/personal-chat" render={() => <PersonalChat hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
           <Route path="/group-chat" render={() => <GroupChatting hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
           <Route path="/activity" render={() => <Activity hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
+          <Route path="/addpost" render={() => <AddPost hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
+          <Route path="/events" render={() => <Events hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
         </IonRouterOutlet>
 
 

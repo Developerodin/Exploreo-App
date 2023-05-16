@@ -51,7 +51,7 @@ const {itemData}=useContext(AppContext);
 
              
 
-                <div style={{marginTop:"30px"}}>
+                <div style={{marginTop:"10px"}}>
                   <div style={{margin:"auto"}}>
                      {itemData.map((el)=>{
                           return (

@@ -153,12 +153,12 @@ const itemData = [
 
 const ProfileGallery = () => {
   return (
-    <div>
-    <IonGrid>
+    <div >
+    <IonGrid style={{padding:"0px"}}>
       <IonRow className="ion-justify-content-center">
         {itemData.map((item, index) => (
           <IonCol size="4" size-md="3" size-lg="2" key={index} style={{padding:"0px"}}>
-            <IonImg src={item.img} className="gallery-image" loading="lazy" />
+            <IonImg src={item.img} style={{width:"126.85px",height:"128px"}} className="gallery-image" loading="lazy" />
           </IonCol>
         ))}
       </IonRow>

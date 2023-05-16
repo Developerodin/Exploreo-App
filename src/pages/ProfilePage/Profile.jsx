@@ -5,10 +5,12 @@ import GroupsChat from '../../components/Chats/GroupsChat';
 import { addCircleOutline, menuOutline,imageOutline,bookmarkOutline } from 'ionicons/icons';
 import ProfileGallery from '../../components/ProfileGallery/ProfileGallery';
 import Saved from '../../components/ProfileSaved/Saved';
+import { useHistory } from 'react-router';
 
 const Profile = () => {
 
   const [selectedTab, setSelectedTab] = useState('Images');
+  const history=useHistory();
 
     const renderComponent = () => {
         switch (selectedTab) {
@@ -21,6 +23,12 @@ const Profile = () => {
             return null;
         }
       };
+
+const handelAddEvent=()=>{
+  history.push("/events")
+}
+
+
   return (
     <IonPage >
       <IonContent style={{padding:"0px"}}>
@@ -29,14 +37,14 @@ const Profile = () => {
 
 <div style={{height:"80px",display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 30px"}}>
           
-          <IonIcon size="large" icon={addCircleOutline} slot="start"></IonIcon>
+          <IonIcon onClick={handelAddEvent} size="large" icon={addCircleOutline} slot="start"></IonIcon>
           <IonIcon size="large" icon={menuOutline} slot='end'></IonIcon>
 
  </div>
 
 
 
-<div style={{height:"100%",borderRadius:"30px",padding:"10px",backgroundColor:"#FFF"}}>
+<div style={{height:"100%",borderRadius:"30px",padding:"0px",backgroundColor:"#FFF"}}>
 
 <div style={{display:"flex",justifyContent:"space-evenly",alignItems:"center"}}>
   <div  style={{textAlign:"center"}}>
@@ -52,7 +60,7 @@ const Profile = () => {
   </div>
        
    <div style={{width:"92px",height:"92px",borderRadius:"100px",marginTop:"-30px"}}>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOlFHgBImzh3JF_Sb24kDBDnPMJ4F53ecw_Q&usqp=CAU" alt='img' style={{borderRadius:"100px",width:"100%",height:"100%"}} />
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-0QPecNKMI3fk21p7T20gGdRsLRu-FVOFUQ&usqp=CAU" alt='img' style={{borderRadius:"100px",width:"100%",height:"100%"}} />
    </div>
 
    <div style={{textAlign:"center"}}>
@@ -73,7 +81,7 @@ const Profile = () => {
 
 <div style={{textAlign:"center",margin:"20px"}}>
   <div>
-    <IonText style={{fontSize:"25px"}}>Lora Silvia</IonText>
+    <IonText style={{fontSize:"25px"}}>Loram Silvia</IonText>
   </div>
 
   <div>
