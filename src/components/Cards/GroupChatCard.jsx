@@ -1,15 +1,21 @@
 import { IonCard, IonCardContent, IonIcon, IonText } from "@ionic/react";
 import React from "react";
 import { heartOutline, sendOutline, chatbubbleOutline } from "ionicons/icons";
+import { useHistory } from "react-router";
 
 const GroupChatCard = (props) => {
   const { Data } = props;
+const history=useHistory();
+  const handelClick =()=>{
+    console.log("going to group chat");
+    history.push("/group-chat")
+}
 
   if (Data.LastSendImage !== undefined)
     console.log("Imges", Data.LastSendImage.length);
 
   return (
-    <div style={{ marginBottom: "10px" }}>
+    <div style={{ marginBottom: "10px" }} onClick={handelClick}>
       <div
         style={{
           display: "flex",

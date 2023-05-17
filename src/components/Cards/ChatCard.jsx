@@ -1,11 +1,24 @@
 import { IonCard, IonCardContent, IonIcon, IonText } from "@ionic/react";
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { heartOutline, sendOutline, chatbubbleOutline } from "ionicons/icons";
+import { useHistory } from "react-router";
+import { AppContext } from "../../Context/AppContext";
 const ChatCard = (props) => {
   const { Data } = props;
-
+  
+const history=useHistory();
   if (Data.LastSendImage !== undefined)
     console.log("Imges", Data.LastSendImage.length);
+
+    const handelClick =()=>{
+      console.log("going to personal chat");
+      history.push(`/personal-chat/${Data.id}`)
+     
+  }
+
+  useEffect(()=>{
+
+  },[])
 
   return (
     <div style={{ marginBottom: "10px" }}>
@@ -25,7 +38,7 @@ const ChatCard = (props) => {
         >
           <div style={{ width: "50px", height: "50px" }}>
             <img
-              src={Data.Img}
+              src={Data.userImg}
               alt="user Image"
               style={{ width: "100%", height: "100%", borderRadius: "100px" }}
             />
@@ -34,18 +47,19 @@ const ChatCard = (props) => {
           <div style={{ marginLeft: "6px" }}>
             <div>
               <IonText
+               onClick={handelClick}
                 style={{
                   fontSize: "14px",
                   fontWeight: "bold",
                   color: "#2D3F65",
                 }}
               >
-                {Data.Name}
+                {Data.name}
               </IonText>
             </div>
             <div>
               <IonText style={{ fontSize: "9px", color: "grey" }}>
-                {Data.LastChat}
+                {Data.discription}
               </IonText>
             </div>
           </div>
@@ -59,7 +73,7 @@ const ChatCard = (props) => {
           }}
         >
           <div>
-            <IonText style={{ fontSize: "12px" }}>{Data.LastSeen}</IonText>
+            <IonText style={{ fontSize: "12px" }}>14.39</IonText>
           </div>
         </div>
       </div>

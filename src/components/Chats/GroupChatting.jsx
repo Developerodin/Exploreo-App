@@ -32,7 +32,7 @@ const{MarkerData,setTabBarVisibility,TabBarVisibility}=useContext(AppContext);
   const{hidetaskbar}=props;
   const path=location.pathname;
   console.log("path",TabBarVisibility);
-  setTabBarVisibility(path);
+  // setTabBarVisibility(path);
 
 // const handelClose=()=>{
 //     console.log("close trigger");

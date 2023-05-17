@@ -1,11 +1,21 @@
-import { IonContent, IonIcon, IonInput, IonItem, IonLabel, IonList, IonPage, IonSegment, IonSegmentButton, IonText, IonToolbar } from '@ionic/react'
-import React, { useState } from 'react'
-import { heartOutline,sendOutline,chatbubbleOutline,notificationsOutline,chatbubbleEllipsesOutline,searchOutline} from 'ionicons/icons';
+import { IonContent, IonIcon, IonInput, IonItem, IonLabel, IonList, IonPage, IonSegment, IonSegmentButton, IonText, IonToolbar, useIonViewDidEnter, useIonViewDidLeave } from '@ionic/react'
+import React, { useContext, useState } from 'react'
+import { heartOutline,sendOutline,chatbubbleOutline,notificationsOutline,chatbubbleEllipsesOutline,searchOutline, closeOutline} from 'ionicons/icons';
 import ContactsChat from '../../components/Chats/ContactsChat';
 import GroupsChat from '../../components/Chats/GroupsChat';
 import Threds from '../../components/Chats/Threds';
+import { useHistory, useLocation } from 'react-router';
+import { AppContext } from '../../Context/AppContext';
 const Chats = () => {
+  const{MarkerData,setTabBarVisibility,TabBarVisibility,itemData}=useContext(AppContext);
+
     const [selectedTab, setSelectedTab] = useState('Contacts');
+    const location = useLocation();
+    const history=useHistory()
+    const path=location.pathname;
+    console.log("path from chats",TabBarVisibility);
+    
+    setTabBarVisibility(path);
 
     const renderComponent = () => {
         switch (selectedTab) {
@@ -20,17 +30,51 @@ const Chats = () => {
         }
       };
 
-
+      const handleBackButtonClick = () => {
+        // Replace 'Tab2' with the appropriate route name for your tab
+        history.push('/mainhome');
+      };
+      
+      const handleHardwareBackButton = (event) => {
+        event.detail.register(1, () => {
+          handleBackButtonClick();
+        });
+      };
+      
+      useIonViewDidEnter(() => {
+        document.addEventListener('ionBackButton', handleHardwareBackButton);
+      
+        return () => {
+          document.removeEventListener('ionBackButton', handleHardwareBackButton);
+        };
+      });
+      
+      useIonViewDidLeave(() => {
+        document.removeEventListener('ionBackButton', handleHardwareBackButton);
+      });
 
   return (
     <IonPage>
         <IonContent>
             <div style={{width:"90%",margin:"auto"}}>
-                
-               <div style={{marginTop:"30px"}}>
+
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+              <div style={{marginTop:"30px"}}>
                 <IonText style={{fontSize:"48px",color:"#2D3F65",fontWeight:"500"}}>Chats</IonText>
                </div>
-
+               <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+            <div>
+            <IonIcon onClick={handleBackButtonClick}  style={{margin:"5px 3px 0px"}} icon={closeOutline} size="large" color="dark"></IonIcon>
+            
+            
+              </div>
+                
+               
+            </div>
+           
+        
+        
+        </div>
 
 {/* search bar */}
                <div>

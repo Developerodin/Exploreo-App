@@ -1,23 +1,27 @@
 import { IonButton, IonCard, IonContent, IonIcon, IonImg, IonItem, IonLabel, IonList, IonPage, IonSegment, IonSegmentButton, IonText, IonToolbar } from '@ionic/react'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import SearchPageGallery from '../../components/SearchPageGallery/SearchPageGallery';
 import GroupsChat from '../../components/Chats/GroupsChat';
 import { addCircleOutline, menuOutline,imageOutline,bookmarkOutline } from 'ionicons/icons';
 import ProfileGallery from '../../components/ProfileGallery/ProfileGallery';
 import Saved from '../../components/ProfileSaved/Saved';
 import { useHistory, useParams } from 'react-router';
+import { AppContext } from '../../Context/AppContext';
 
-const Profile = () => {
+const OthersProfilePage = () => {
 
   const [selectedTab, setSelectedTab] = useState('Images');
   const [loading, setLoading] = useState('');
- 
-  const history=useHistory();
 
+  const {itemData}=useContext(AppContext);
+
+  const history=useHistory();
+  const {id}=useParams();
+  const[userData,setUserData]=useState({});
     const renderComponent = () => {
         switch (selectedTab) {
           case 'Images':
-            return <ProfileGallery />;
+            return ;
           case 'Saved':
             return <Saved/>;
         
@@ -29,11 +33,39 @@ const Profile = () => {
 const handelAddEvent=()=>{
   history.push("/events")
 }
+const handelState=()=>{
+    itemData.map((item)=>{
+        if(item.id === id){
+            return setUserData(item);
+        }
+        
+    })
+     
+    console.log("DAta",itemData)
+    console.log("User Data",userData);
+}
+
 
 useEffect(()=>{
+    console.log("User Id",id);
+    handelState();
 
-})
+  },[id]);
 
+let count=1;
+  const handelFollowClick=(e)=>{
+    count=count+1;
+     console.log("Event",e.target.innerText);
+     if(count % 2===0){
+        e.target.innerText="Unfollow";
+        
+    }
+        
+     else{
+        e.target.innerText="Follow"
+     }
+
+  }
 
   return (
     <IonPage >
@@ -55,7 +87,7 @@ useEffect(()=>{
 <div style={{display:"flex",justifyContent:"space-evenly",alignItems:"center"}}>
   <div  style={{textAlign:"center"}}>
     <div>
-    <IonText style={{fontSize:"18px",fontWeight:"700"}}>125K</IonText>
+    <IonText style={{fontSize:"18px",fontWeight:"700"}}>{userData.followers}</IonText>
     </div>
 
     <div>
@@ -66,12 +98,12 @@ useEffect(()=>{
   </div>
        
    <div style={{width:"92px",height:"92px",borderRadius:"100px",marginTop:"-30px"}}>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-0QPecNKMI3fk21p7T20gGdRsLRu-FVOFUQ&usqp=CAU" alt='img' style={{borderRadius:"100px",width:"100%",height:"100%"}} />
+    <img src={userData.userImg} alt='img' style={{borderRadius:"100px",width:"100%",height:"100%"}} />
    </div>
 
    <div style={{textAlign:"center"}}>
     <div>
-    <IonText style={{fontSize:"18px",fontWeight:"700"}}>105</IonText>
+    <IonText style={{fontSize:"18px",fontWeight:"700"}}>{userData.following}</IonText>
     </div>
 
     <div>
@@ -87,20 +119,20 @@ useEffect(()=>{
 
 <div style={{textAlign:"center",margin:"20px"}}>
   <div>
-    <IonText style={{fontSize:"25px"}}>Loram Silvia</IonText>
+    <IonText style={{fontSize:"25px"}}>{userData.name}</IonText>
   </div>
 
   <div>
     <IonText style={{fontSize:"12px",color:"#828796"}}>
-    UI/UX Designer at @Ecommercex
+    {userData.discription}
     </IonText>
   </div>
 </div>
 
 
 <div style={{display:"flex",justifyContent:"space-evenly",alignItems:"center",marginBottom:"15px"}}> 
-  <IonButton shape='round' color="btnS">Edit Profile</IonButton>
-  <IonButton shape='round' color="light">Friends</IonButton>
+  <IonButton onClick={handelFollowClick} shape='round' color="btnS">Follow</IonButton>
+  <IonButton shape='round' color="light">Message</IonButton>
 </div>
 
 
@@ -138,4 +170,4 @@ useEffect(()=>{
   )
 }
 
-export default Profile
+export default OthersProfilePage

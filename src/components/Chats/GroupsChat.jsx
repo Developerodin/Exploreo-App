@@ -21,12 +21,9 @@ const ContactData=[
 ]
 const GroupsChat = () => {
   const history=useHistory();
-  const handelClick =()=>{
-    console.log("going to personal chat");
-    history.push("/group-chat")
-}
+ 
   return (
-    <div onClick={handelClick}>
+    <div >
       {
             ContactData.map((el,index)=>{
                 return (

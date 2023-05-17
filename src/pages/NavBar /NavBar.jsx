@@ -20,16 +20,19 @@ import Profile from '../ProfilePage/Profile';
 import Activity from '../Activity Page/Activity';
 import AddPost from '../AddPost Page/AddPost';
 import Events from '../Events Page/Events';
+import OthersProfilePage from '../ProfilePage/OthersProfilePage';
 const NavBar = () => {
   const{setTabBarVisibility,TabBarVisibility}=useContext(AppContext);
 
 
   let HideTabBarValue;
-  if(TabBarVisibility === "/group-chat" || TabBarVisibility === "/personal-chat"){
+  if(TabBarVisibility === "/group-chat" || TabBarVisibility === "/personal-chat/2" ){
     HideTabBarValue=TabBarVisibility;
+    console.log("i am in if bro")
    }
    else{
     HideTabBarValue="false"
+    console.log("i am in else bro")
    }
 
   return (
@@ -47,7 +50,8 @@ const NavBar = () => {
           <Route path="/search" render={() => <SearchPage />} exact={true} />
           <Route path="/chats" render={() => <Chats/>} exact={true} />
           <Route path="/profile" render={() => <Profile/>} exact={true} />
-          <Route path="/personal-chat" render={() => <PersonalChat hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
+          <Route path="/othersprofile/:id" render={() => <OthersProfilePage/>} exact={true} />
+          <Route path="/personal-chat/:id" render={() => <PersonalChat hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
           <Route path="/group-chat" render={() => <GroupChatting hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
           <Route path="/activity" render={() => <Activity hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
           <Route path="/addpost" render={() => <AddPost hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />

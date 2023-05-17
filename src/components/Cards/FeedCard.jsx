@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonIcon, IonText } from '@ionic/react';
 import { heartOutline,paperPlaneOutline,chatbubbleOutline,ellipsisVertical,bookmarkOutline} from 'ionicons/icons';
+import { useHistory } from 'react-router';
+import { AppContext } from '../../Context/AppContext';
 const FeedCard = (props) => {
 
+const history=useHistory();
   const {Data}=props;
     const handelLike=()=>{
         console.log("like");
     }
+
+const handelSelctedUser=(e)=>{
+  history.push(`/othersprofile/${Data.id}`)
+  
+}
+
+    useEffect(()=>{
+
+    },[])
 
   return (
     <>
@@ -23,7 +35,7 @@ const FeedCard = (props) => {
         
         <div style={{marginLeft:"6px"}}>
             <div>
-            <IonText style={{fontSize:"14px",fontWeight:"bold"}}>{Data.name}</IonText>
+            <IonText onClick={handelSelctedUser} style={{fontSize:"14px",fontWeight:"bold"}}>{Data.name}</IonText>
             </div>
             <div>
                 <IonText style={{fontSize:"11px",color:"grey"}}>Jaipur</IonText>

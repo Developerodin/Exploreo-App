@@ -1,5 +1,5 @@
-import React from 'react'
-import { IonContent, IonGrid, IonRow, IonCol, IonImg } from '@ionic/react';
+import React, { useEffect, useState } from 'react'
+import { IonContent, IonGrid, IonRow, IonCol, IonImg, IonProgressBar } from '@ionic/react';
 import "./style.css"
 
 const ImgUrl='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReFjO6rbNAKcZtfgpqkhnqWGPwcH5hAArN1A&usqp=CAU'
@@ -106,8 +106,23 @@ const itemData = [
 
 
 const SearchPageGallery = () => {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(()=>{
+    setLoading(true)
+    setTimeout(()=>{
+      setLoading(false)
+    },5000)
+  },[])
   return (
     <div>
+       {loading 
+      ? 
+      <IonProgressBar type="indeterminate" color="secondary"></IonProgressBar>
+      :
+      <div></div>
+      
+      }
       <IonGrid>
         <IonRow className="ion-justify-content-center">
           {itemData.map((item, index) => (
