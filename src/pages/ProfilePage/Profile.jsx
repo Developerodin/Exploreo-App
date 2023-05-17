@@ -1,5 +1,5 @@
 import { IonButton, IonCard, IonContent, IonIcon, IonImg, IonItem, IonLabel, IonList, IonPage, IonSegment, IonSegmentButton, IonText, IonToolbar } from '@ionic/react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchPageGallery from '../../components/SearchPageGallery/SearchPageGallery';
 import GroupsChat from '../../components/Chats/GroupsChat';
 import { addCircleOutline, menuOutline,imageOutline,bookmarkOutline } from 'ionicons/icons';
@@ -10,6 +10,7 @@ import { useHistory } from 'react-router';
 const Profile = () => {
 
   const [selectedTab, setSelectedTab] = useState('Images');
+  const [loading, setLoading] = useState('');
   const history=useHistory();
 
     const renderComponent = () => {
@@ -27,6 +28,7 @@ const Profile = () => {
 const handelAddEvent=()=>{
   history.push("/events")
 }
+
 
 
   return (

@@ -1,4 +1,4 @@
-import { IonContent, IonIcon, IonInput, IonItem, IonList, IonPage, IonText } from '@ionic/react'
+import { IonContent, IonIcon, IonInput, IonItem, IonList, IonPage, IonText, useIonViewDidEnter, useIonViewDidLeave } from '@ionic/react'
 import { heartOutline ,closeOutline,happyOutline,attachOutline,cameraOutline} from 'ionicons/icons'
 import React, { useContext } from 'react'
 
@@ -34,11 +34,33 @@ const{MarkerData,setTabBarVisibility,TabBarVisibility}=useContext(AppContext);
   console.log("path",TabBarVisibility);
   setTabBarVisibility(path);
 
-const handelClose=()=>{
-    console.log("close trigger");
-    history.goBack();
-}
+// const handelClose=()=>{
+//     console.log("close trigger");
+//     history.push("/chats");
+// }
 
+const handleBackButtonClick = () => {
+  // Replace 'Tab2' with the appropriate route name for your tab
+  history.push('/chats');
+};
+
+const handleHardwareBackButton = (event) => {
+  event.detail.register(1, () => {
+    handleBackButtonClick();
+  });
+};
+
+useIonViewDidEnter(() => {
+  document.addEventListener('ionBackButton', handleHardwareBackButton);
+
+  return () => {
+    document.removeEventListener('ionBackButton', handleHardwareBackButton);
+  };
+});
+
+useIonViewDidLeave(() => {
+  document.removeEventListener('ionBackButton', handleHardwareBackButton);
+});
 
 
   return (
@@ -68,7 +90,7 @@ const handelClose=()=>{
 
         <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
             <div>
-            <IonIcon onClick={handelClose}  style={{margin:"5px 3px 0px"}} icon={closeOutline} size="large" color="dark"></IonIcon>
+            <IonIcon onClick={handleBackButtonClick}  style={{margin:"5px 3px 0px"}} icon={closeOutline} size="large" color="dark"></IonIcon>
             </div>
            
         

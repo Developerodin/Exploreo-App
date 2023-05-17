@@ -34,11 +34,11 @@ h1, p {
   
   .circle-container img { display: block; width: 100%; }
   .deg0 { transform: translate(100px); } /* 12em = half the width of the wrapper */
-  .deg45 { transform: rotate(20deg) translate(100px) rotate(-45deg); }
+  
   .deg90 { transform: rotate(100deg) translate(100px) rotate(-100deg); }
   .deg135 { transform: rotate(160deg) translate(120px) rotate(-135deg); }
   
-  .deg225 { transform: rotate(210deg) translate(145px) rotate(-225deg); }
+  .deg225 { transform: rotate(190deg) translate(145px) rotate(-190deg); }
   .deg270 { transform: rotate(265deg) translate(140px) rotate(90deg); }
-  .deg315 { transform: rotate(320deg) translate(130px) rotate(-315deg); }
+  .deg315 { transform: rotate(350deg) translate(120px) rotate(-345deg); }
   

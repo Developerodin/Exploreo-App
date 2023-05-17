@@ -37,7 +37,7 @@ const NavBar = () => {
          <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Redirect exact path="/" to="/mainhome" />
+          
           {/*
           Use the render method to reduce the number of renders your component will have due to a route change.
 
@@ -52,6 +52,7 @@ const NavBar = () => {
           <Route path="/activity" render={() => <Activity hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
           <Route path="/addpost" render={() => <AddPost hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
           <Route path="/events" render={() => <Events hidetaskbar={setTabBarVisibility} pathvalue={TabBarVisibility}/>} exact={true} />
+          <Redirect exact path="/" to="/mainhome" />
         </IonRouterOutlet>
 
 

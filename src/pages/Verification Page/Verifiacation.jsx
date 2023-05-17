@@ -16,7 +16,7 @@ import {callOutline,checkmarkCircleOutline,alertCircleOutline,arrowBackOutline} 
 import { useHistory } from "react-router";
 const Verifiacation = () => {
 
-const[otp,setOtp]=useState(' ');
+const[otp,setOtp]=useState(null);
 const history = useHistory();
 
 const handelOtp=()=>{
@@ -78,6 +78,7 @@ const handelBack=()=>{
                 </IonList> */}
                         
                        <OtpInput
+                         inputType="password"
                           value={otp}
                           onChange={setOtp}
                           numInputs={4}

@@ -1,5 +1,5 @@
-import { IonCol, IonGrid, IonImg, IonRow } from '@ionic/react'
-import React from 'react'
+import { IonCol, IonGrid, IonImg, IonProgressBar, IonRow } from '@ionic/react'
+import React, { useEffect, useState } from 'react'
 
 
 const itemData = [
@@ -152,17 +152,34 @@ const itemData = [
 
 
 const ProfileGallery = () => {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(()=>{
+    setLoading(true)
+    setTimeout(()=>{
+      setLoading(false)
+    },3000)
+  },[])
   return (
     <div >
-    <IonGrid style={{padding:"0px"}}>
-      <IonRow className="ion-justify-content-center">
-        {itemData.map((item, index) => (
-          <IonCol size="4" size-md="3" size-lg="2" key={index} style={{padding:"0px"}}>
-            <IonImg src={item.img} style={{width:"126.85px",height:"128px"}} className="gallery-image" loading="lazy" />
-          </IonCol>
-        ))}
-      </IonRow>
-    </IonGrid>
+      {loading 
+      ? 
+      <IonProgressBar type="indeterminate" color="secondary"></IonProgressBar>
+      :
+      <div></div>
+      
+      }
+
+<IonGrid style={{padding:"0px"}}>
+       <IonRow className="ion-justify-content-center">
+         {itemData.map((item, index) => (
+           <IonCol size="4" size-md="3" size-lg="2" key={index} style={{padding:"0px"}}>
+             <IonImg src={item.img} style={{width:"126.85px",height:"128px"}} className="gallery-image" />
+           </IonCol>
+         ))}
+       </IonRow>
+     </IonGrid>
+   
   </div>
   )
 }

@@ -1,4 +1,4 @@
-import { IonIcon, IonText } from '@ionic/react'
+import { IonIcon, IonText, useIonViewDidEnter, useIonViewDidLeave } from '@ionic/react'
 import React from 'react'
 import { heartOutline,sendOutline,chatbubbleOutline} from 'ionicons/icons';
 import ChatCard from '../Cards/ChatCard';
@@ -25,8 +25,9 @@ const history = useHistory()
     const handelClick =()=>{
         console.log("going to personal chat");
         history.push("/personal-chat")
+        
     }
-
+   
 
 
   return (

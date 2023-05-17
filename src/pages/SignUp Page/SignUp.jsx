@@ -73,18 +73,16 @@ const SignUP = () => {
           </div>
           {/* Bottam */}
 
-          
-          
-        </div>
-      </IonContent>
-      <IonFooter>
-          <div style={{width:"100%",display:"flex",justifyContent:"center",alignItems:"center",marginBottom:"30px"}}>
+          <div style={{backgroundColor:"#FFF",width:"100%",display:"flex",justifyContent:"center",alignItems:"center",marginBottom:"20px",position:"absolute",bottom:"0"}}>
            
-           <IonText style={{fontSize:"15px",fontWeight:"500"}}>Dont have an account ? / <Link to="/login"><span style={{color:"#00C9B5"}}> Sign In</span></Link> </IonText>
+           <IonText style={{fontSize:"15px",fontWeight:"500"}}>Dont have an account ? / <Link to="/login" style={{textDecoration:"none"}}><span style={{color:"#00C9B5"}}> Sign In</span></Link> </IonText>
            
 
          </div>
-          </IonFooter>
+          
+        </div>
+      </IonContent>
+      
     </IonPage>
   );
 };
