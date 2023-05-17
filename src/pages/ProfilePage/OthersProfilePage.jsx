@@ -67,6 +67,9 @@ let count=1;
 
   }
 
+  const handelClickMessage=()=>{
+    history.push(`/personal-chat/${userData.id}`)
+  }
   return (
     <IonPage >
       <IonContent style={{padding:"0px"}}>
@@ -132,7 +135,7 @@ let count=1;
 
 <div style={{display:"flex",justifyContent:"space-evenly",alignItems:"center",marginBottom:"15px"}}> 
   <IonButton onClick={handelFollowClick} shape='round' color="btnS">Follow</IonButton>
-  <IonButton shape='round' color="light">Message</IonButton>
+  <IonButton onClick={handelClickMessage} shape='round' color="light">Message</IonButton>
 </div>
 
 
