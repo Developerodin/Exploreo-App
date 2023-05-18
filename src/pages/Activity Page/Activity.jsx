@@ -2,9 +2,10 @@ import { IonContent, IonHeader, IonIcon, IonInput, IonItem, IonList, IonPage, Io
 import React, { useContext } from 'react'
 import ActivityFR from '../../components/Cards/ActivityCards/ActivityFR'
 import { AppContext } from '../../Context/AppContext'
-import CommanCard from '../../components/Cards/ActivityCards/CommanCard'
+
 import { searchOutline } from 'ionicons/icons'
 import NotificationCard from '../../components/Cards/ActivityCards/NotificationCard'
+import CommentCard from '../../components/Cards/CommentCard'
 
 const Activity = () => {
     const {itemData}=useContext(AppContext);
@@ -44,7 +45,7 @@ const Activity = () => {
             {itemData.map((el,index)=>{
                 if(index %10===0){
                     return(
-                        <CommanCard Data={el}/> 
+                        <CommentCard Data={el}/> 
                     )
                 }
                

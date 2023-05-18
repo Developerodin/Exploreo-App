@@ -13,7 +13,7 @@ const Chats = () => {
     const location = useLocation();
     const history=useHistory()
     const path=location.pathname;
-    console.log("path from chats",TabBarVisibility);
+    // console.log("path from chats",TabBarVisibility);
     
     setTabBarVisibility(path);
 

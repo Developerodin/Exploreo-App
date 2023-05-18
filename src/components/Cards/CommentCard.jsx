@@ -1,10 +1,12 @@
 import { IonCard, IonCardContent, IonIcon, IonText } from "@ionic/react";
-import React, { useContext, useEffect } from "react";
-import { heartOutline, sendOutline, chatbubbleOutline } from "ionicons/icons";
+import React, { useContext, useEffect, useState } from "react";
+import { heartOutline,paperPlaneOutline,chatbubbleOutline,ellipsisVertical,bookmarkOutline,heart,bookmark, arrowBack} from 'ionicons/icons';
 import { useHistory } from "react-router";
-import { AppContext } from "../../Context/AppContext";
-const ChatCard = (props) => {
+
+const CommentCard = (props) => {
   const { Data } = props;
+  const [isLiked, setIsLiked] = useState(false);
+  const [LikeValue, setLikeValue] = useState(30);
   
 const history=useHistory();
   // if (Data.LastSendImage !== undefined)
@@ -15,6 +17,12 @@ const history=useHistory();
       history.push(`/personal-chat/${Data.id}`)
      
   }
+
+  const handelLike=()=>{
+    console.log("like post of",Data.name);
+    setIsLiked(!isLiked);
+    setLikeValue((prev=>prev+1))
+}
 
   useEffect(()=>{
 
@@ -32,7 +40,7 @@ const history=useHistory();
         <div
           style={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "space-between",
             alignItems: "center",
           }}
         >
@@ -44,7 +52,7 @@ const history=useHistory();
             />
           </div>
 
-          <div style={{ marginLeft: "6px" }}>
+          <div style={{ marginLeft: "6px",width:"80%" }}>
             <div>
               <IonText
                onClick={handelClick}
@@ -58,8 +66,8 @@ const history=useHistory();
               </IonText>
             </div>
             <div>
-              <IonText style={{ fontSize: "9px", color: "grey" }}>
-                {Data.discription}
+              <IonText style={{ fontSize: "12px" }}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum commodi laboriosam excepturi porro dolor! Distinctio velit dignissimos similique deleniti ea, qui perspiciatis a voluptatum consequatur quasi at sint asperiores voluptas!
               </IonText>
             </div>
           </div>
@@ -73,35 +81,26 @@ const history=useHistory();
           }}
         >
           <div>
-            <IonText style={{ fontSize: "12px" }}>14.39</IonText>
+          <IonIcon 
+            onClick={handelLike} 
+            style={{margin:"5px 7px 0px",fontSize:"26px",color:"crimson"}} 
+            icon={isLiked ? heart : heartOutline} 
+            color={isLiked ? 'danger' : 'dark'}
+            className={isLiked ? 'heart-icon liked' : 'heart-icon'}
+            >
+
+            </IonIcon>
+            <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+            <IonText style={{fontSize:"14px"}}>{LikeValue}</IonText>
+            </div>
+            
           </div>
         </div>
       </div>
 
-      <div style={{ display: "flex", marginLeft: "7px" }}>
-        {Data.LastSendImage !== undefined && Data.LastSendImage.length > 0 ? (
-          <div style={{ display: "flex" }}>
-            <div style={{ width: "50px", height: "50px" }}></div>
-            {Data.LastSendImage.map((el, index) => {
-              return (
-                <div key={index} style={{ marginRight: "5px" }}>
-                  <div style={{ height: "50px" }}>
-                    <img
-                      src={el}
-                      alt="image"
-                      style={{ width: "100%", height: "100%" }}
-                    />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <div></div>
-        )}
-      </div>
+      
     </div>
   );
 };
 
-export default ChatCard;
+export default CommentCard;

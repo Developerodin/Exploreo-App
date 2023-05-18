@@ -11,17 +11,6 @@ import ChattingGroupRecivedCard from '../Cards/ChattingGroupRecivedCard'
 
 
 
-const RecivedData=[
-    {sender:"Hello, Akshay"},
-    {sender:"Oh ok , I am comming"}
-
-]
-
-const SenderData =[
-    {sender:"Hii akshay this side"},
-    {sender:"Please come more closer, I can’t see you i am standing at Parking Area."}
-
-]
 
 
 
@@ -34,8 +23,8 @@ const{MarkerData,setTabBarVisibility,TabBarVisibility,itemData}=useContext(AppCo
   const location = useLocation();
   const{hidetaskbar}=props;
   const path=location.pathname;
-  console.log("path from personal chat",TabBarVisibility);
-  console.log("aki bro",path)
+  // console.log("path from personal chat",TabBarVisibility);
+  // console.log("aki bro",path)
   setTabBarVisibility(path);
 
 

@@ -28,11 +28,11 @@ const NavBar = () => {
   let HideTabBarValue;
   if(TabBarVisibility === "/group-chat" || TabBarVisibility === "/personal-chat/2" ){
     HideTabBarValue=TabBarVisibility;
-    console.log("i am in if bro")
+    
    }
    else{
     HideTabBarValue="false"
-    console.log("i am in else bro")
+    
    }
 
   return (
